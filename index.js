@@ -96,9 +96,9 @@ function updateMasterSheet(masterSheet, dataCSV, worksheet) {
         delete row['%Ä F aça de Typ e & Sub Typ e will refl ect her e a uto mat ical ly h ere wit h hi ghli ght ed cell'];
 
         const match = dataCSV.find((csvRow) =>
-            (csvRow['Model']?.toString().trim() || "") === (row['Facade Type']?.toString().trim() || "") &&  
-            (csvRow['Type Mark']?.toString().trim() || "") === (row['Sub Type']?.toString().trim() || "") &&  
-            (csvRow['Area']?.toString().trim() || "") === (row['Glass (Sqm)']?.toString().trim() || "")  
+            (csvRow['Model']?.toString().trim() || "") === (row['Facade Type']?.toString().trim() || "") &&
+            (csvRow['Type Mark']?.toString().trim() || "") === (row['Sub Type']?.toString().trim() || "") &&
+            (csvRow['Area']?.toString().trim() || "") === (row['Glass (Sqm)']?.toString().trim() || "")
         );
 
         if (match) {
@@ -117,34 +117,24 @@ function updateMasterSheet(masterSheet, dataCSV, worksheet) {
     return masterSheet;
 }
 
-// document.getElementById('exportPDF').addEventListener('click', function () {
-//     const { jsPDF } = window.jspdf;
-//     const doc = new jsPDF();
 
-//     doc.autoTable({
-//         head: [Object.keys(updatedSheet[0] || {})],
-//         body: updatedSheet.map(row => Object.values(row)),
-//     });
-
-//     doc.save("Updated_Master_Sheet.pdf");
-// });
 document.getElementById('exportPDF').addEventListener('click', function () {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
     doc.autoTable({
-        head: [Object.keys(updatedSheet[0] || {})], 
+        head: [Object.keys(updatedSheet[0] || {})],
         body: updatedSheet.map(row => Object.values(row)),
-        
+
         headStyles: { fillColor: [255, 255, 255], textColor: 0, fontStyle: 'bold' },
-        tableLineColor: [0, 0, 0], 
+        tableLineColor: [0, 0, 0],
         tableLineWidth: 0.2,
         didDrawPage: function (data) {
             doc.setDrawColor(0);
             doc.setLineWidth(0.8);
             doc.line(data.settings.margin.left, data.cursor.y, doc.internal.pageSize.width - data.settings.margin.right, data.cursor.y); // Draws a horizontal line below headers
-        } 
-        
+        }
+
     });
 
     doc.save("Updated_Master_Sheet.pdf");

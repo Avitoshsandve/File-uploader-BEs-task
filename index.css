@@ -1,5 +1,8 @@
-/* General Page Styling */
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
@@ -10,7 +13,7 @@ body {
     background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
-/* Upload Box */
+
 .upload-container {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
@@ -21,13 +24,13 @@ body {
     text-align: center;
 }
 
-/* Heading */
+
 h2 {
     color: white;
     margin-bottom: 15px;
 }
 
-/* File Input Style */
+
 .file-input {
     display: none;
 }
@@ -48,7 +51,7 @@ h2 {
     background: linear-gradient(135deg, #ff6a88, #ff99ac, #ff9a8b);
 }
 
-/* Upload Button */
+
 .upload-btn {
     margin-top: 15px;
     background: #6a11cb;
@@ -65,4 +68,4 @@ h2 {
 
 .upload-btn:hover {
     background: linear-gradient(135deg, #2575fc, #6a11cb);
-}
+} */
